@@ -1,0 +1,27 @@
+import React from 'react';
+import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
+
+
+export default function Chat() {
+  return (
+    <View style={styles.container}>
+      <Image source= {require('@/assets/images/header_image/BuyMe.png')} style={styles.logo} />
+      <TouchableOpacity onPress={() => console.log('mail')}>
+      </TouchableOpacity>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 16,
+    marginBottom: -16,
+  },
+  logo: {
+    width: 50,
+    height: 24,
+    resizeMode: 'contain',
+  },
+});
