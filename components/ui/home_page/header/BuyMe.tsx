@@ -5,7 +5,7 @@ import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
 export default function Chat() {
   return (
     <View style={styles.container}>
-      <Image source= {require('@/assets/images/header_image/BuyMe.png')} style={styles.logo} />
+      <Image source= {require('@/assets/images/home_page/header_image/BuyMe.png')} style={styles.logo} />
       <TouchableOpacity onPress={() => console.log('mail')}>
       </TouchableOpacity>
     </View>
@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 16,
+    marginTop: 52,
     marginBottom: -16,
   },
   logo: {

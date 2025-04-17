@@ -2,12 +2,15 @@ import React, { useRef, useEffect, useState } from 'react';
 import { View, FlatList, Image, Dimensions, StyleSheet } from 'react-native';
 
 const banners = [
-  require('@/assets/images/bannerCarousel/baner1.png'),
-  require('@/assets/images/bannerCarousel/baner1.png'),
-  require('@/assets/images/bannerCarousel/baner1.png'),
+  require('@/assets/images/home_page/bannerCarousel/baner1.png'),
+  require('@/assets/images/home_page/bannerCarousel/baner2.png'),
+  require('@/assets/images/home_page/bannerCarousel/baner1.png'),
 ];
 
 const { width } = Dimensions.get('window');
+
+const BANNER_HORIZONTAL_MARGIN = 16;
+const BANNER_WIDTH = width - BANNER_HORIZONTAL_MARGIN * 2;
 
 export default function BannerCarousel() {
   const flatListRef = useRef<FlatList>(null);
@@ -23,12 +26,19 @@ export default function BannerCarousel() {
     return () => clearInterval(interval);
   }, [currentIndex]);
 
+  const onScrollEnd = (event: any) => {
+    const offsetX = event.nativeEvent.contentOffset.x;
+    const newIndex = Math.round(offsetX / BANNER_WIDTH);
+    setCurrentIndex(newIndex);
+  };
+
   return (
     <View style={styles.container}>
       <FlatList
         ref={flatListRef}
         data={banners}
         keyExtractor={(_, index) => index.toString()}
+        extraData={currentIndex} // 👈 змушує оновити банер
         renderItem={({ item }) => (
           <View style={styles.bannerWrapper}>
             <Image source={item} style={styles.image} />
@@ -48,27 +58,31 @@ export default function BannerCarousel() {
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
-        onMomentumScrollEnd={(event) => {
-          const newIndex = Math.round(event.nativeEvent.contentOffset.x / width);
-          setCurrentIndex(newIndex);
-        }}
+        onMomentumScrollEnd={onScrollEnd}
+        getItemLayout={(_, index) => ({
+          length: BANNER_WIDTH,
+          offset: BANNER_WIDTH * index,
+          index,
+        })}
+        snapToInterval={BANNER_WIDTH}
+        decelerationRate="fast"
+        snapToAlignment="start"
       />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: 10,
-  },
+  container: {},
   bannerWrapper: {
-    width,
+    width: BANNER_WIDTH,
     height: 180,
     position: 'relative',
+    marginHorizontal: BANNER_HORIZONTAL_MARGIN,
   },
   image: {
-    width: 343,
-    height: 156,
+    width: '100%',
+    height: '100%',
     resizeMode: 'cover',
     borderRadius: 10,
     justifyContent: 'center',

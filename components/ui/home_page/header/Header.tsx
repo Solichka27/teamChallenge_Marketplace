@@ -7,24 +7,29 @@ import BuyMe from '@/components/ui/home_page/header/BuyMe'
 
 export default function Header() {
   return (
-    <View>
-      <View style={styles.logo}>
-        <BuyMe />
-      </View>
+    <View style={styles.wrapper}>
+      <View>
+        <View style={styles.logo}>
+          <BuyMe />
+        </View>
 
-      <View style={styles.container}>
-        <Notification />
-        <Chat />
-        <SearchBar />
-      </ View >
+        <View style={styles.container}>
+          <Chat />
+          <Notification />
+          <SearchBar />
+        </ View >
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  wrapper:{
+    paddingHorizontal: 16,
+  },
   container: {
-    paddingHorizontal: 20,
-    paddingVertical: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

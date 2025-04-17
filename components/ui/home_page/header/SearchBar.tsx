@@ -4,14 +4,14 @@ import { View, Image, TextInput, StyleSheet } from 'react-native';
 export default function SearchBar() {
   return (
     <View style={styles.container}>
-      <Image source= {require('@/assets/images/header_image/search.png')} style={styles.logo} />
+      <Image source= {require('@/assets/images/home_page/header_image/search.png')} style={styles.logo} />
       <TextInput
         style={styles.input}
         placeholder="Search for item"
         placeholderTextColor="#aaa"
         autoCorrect={false}
       />
-      <Image source= {require('@/assets/images/header_image/camera.png')} style={styles.logo} />
+      <Image source= {require('@/assets/images/home_page/header_image/camera.png')} style={styles.logo} />
     </View>
   );
 }
@@ -30,7 +30,12 @@ const styles = StyleSheet.create({
 
   input: {
     flex: 1,
-    fontSize: 16,
+    fontFamily: 'SFProText-Regular',
+    fontWeight: '400',
+    fontSize: 13,
+    lineHeight: 19.5,
+    letterSpacing: -0.13,
+    color: 'rgba(0, 0, 0, 0.4)',
     paddingVertical: 10,
     paddingHorizontal: 8,
   },

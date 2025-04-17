@@ -2,10 +2,10 @@ import React from 'react';
 import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
 
-export default function Chat() {
+export default function Notification() {
   return (
     <View style={styles.container}>
-      <Image source= {require('@/assets/images/header_image/bell.png')} style={styles.logo} />
+      <Image source= {require('@/assets/images/home_page/header_image/bell.png')} style={styles.logo} />
       <TouchableOpacity onPress={() => console.log('bell')}>
       </TouchableOpacity>
     </View>
