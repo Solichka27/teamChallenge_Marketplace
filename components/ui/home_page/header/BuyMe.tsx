@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image, TouchableOpacity, StyleSheet } from 'react-native';
 
 
-export default function Chat() {
+export default function BuyMe() {
   return (
     <View style={styles.container}>
       <Image source= {require('@/assets/images/home_page/header_image/BuyMe.png')} style={styles.logo} />

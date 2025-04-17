@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity, Alert } from 'react-native';
-import {ThemedText} from '@/components/ThemedText';
+import { ThemedText } from '@/components/ThemedText';
 
 const categories = [
   { id: '1', title: 'Clothes', icon: require('@/assets/images/home_page/categories/clothes-hanger.png') },
@@ -37,7 +37,7 @@ export default function CategoryGrid() {
   return (
     <View style={styles.centeredContainer}>
       <View style={styles.headerContainer}>
-      <ThemedText type="title">Categories</ThemedText>
+        <ThemedText type="title">Categories</ThemedText>
         <TouchableOpacity onPress={handleSeeAllPress}>
           <Text style={styles.seeAllText}>See All</Text>
         </TouchableOpacity>
@@ -49,6 +49,7 @@ export default function CategoryGrid() {
         keyExtractor={(item) => item.id}
         numColumns={4}
         contentContainerStyle={styles.container}
+        columnWrapperStyle={styles.columnWrapper}
       />
     </View>
   );
@@ -63,42 +64,43 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between', 
+    justifyContent: 'space-between',
     alignItems: 'center',
     width: '100%',
     paddingTop: 24,
     paddingBottom: 16,
   },
-  headerText: {
-    fontFamily: 'SFProText-Regular',
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: 'rgba(0, 0, 0, 0.8)',
-  },
   seeAllText: {
     fontFamily: 'SFProText-Regular',
     fontSize: 16,
-    color: '#000', 
+    color: '#000',
   },
   container: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
     paddingTop: 0,
+    paddingHorizontal: 10,
+  },
+  columnWrapper: {
+    justifyContent: 'space-between',
+    marginBottom: 40,
   },
   item: {
     alignItems: 'center',
-    marginBottom: 24,
-    marginRight: 40,
+    justifyContent: 'center',
+    width: 70,
   },
   iconWrapper: {
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: '#f0f0f0',
+    backgroundColor: 'white',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 5 },
+    shadowOpacity: 0.1,
+    shadowRadius: 15,
+    elevation: 10,
   },
   icon: {
     width: 32,
