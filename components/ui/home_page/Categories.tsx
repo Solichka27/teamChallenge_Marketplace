@@ -1,0 +1,116 @@
+import React from 'react';
+import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity, Alert } from 'react-native';
+import {ThemedText} from '@/components/ThemedText';
+
+const categories = [
+  { id: '1', title: 'Clothes', icon: require('@/assets/images/home_page/categories/clothes-hanger.png') },
+  { id: '2', title: 'Shoes', icon: require('@/assets/images/home_page/categories/sneaker.png') },
+  { id: '3', title: 'Bags', icon: require('@/assets/images/home_page/categories/bags.png') },
+  { id: '4', title: 'Accessories', icon: require('@/assets/images/home_page/categories/earrings.png') },
+  { id: '5', title: 'Cosmetics', icon: require('@/assets/images/home_page/categories/beauty.png') },
+  { id: '6', title: 'Home', icon: require('@/assets/images/home_page/categories/house.png') },
+  { id: '7', title: 'Electronics', icon: require('@/assets/images/home_page/categories/laptop.png') },
+  { id: '8', title: 'Services', icon: require('@/assets/images/home_page/categories/people.png') },
+];
+
+export default function CategoryGrid() {
+  const handleCategoryPress = (categoryName: string) => {
+    Alert.alert('Category Selected', `You selected ${categoryName}`);
+  };
+
+  const handleSeeAllPress = () => {
+    Alert.alert('See All Categories', 'Redirecting to all categories...');
+  };
+
+  const renderItem = ({ item }) => (
+    <TouchableOpacity
+      style={styles.item}
+      onPress={() => handleCategoryPress(item.title)}
+    >
+      <View style={styles.iconWrapper}>
+        <Image source={item.icon} style={styles.icon} />
+      </View>
+      <Text style={styles.label}>{item.title}</Text>
+    </TouchableOpacity>
+  );
+
+  return (
+    <View style={styles.centeredContainer}>
+      <View style={styles.headerContainer}>
+      <ThemedText type="title">Categories</ThemedText>
+        <TouchableOpacity onPress={handleSeeAllPress}>
+          <Text style={styles.seeAllText}>See All</Text>
+        </TouchableOpacity>
+      </View>
+
+      <FlatList
+        data={categories}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        numColumns={4}
+        contentContainerStyle={styles.container}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  centeredContainer: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    paddingHorizontal: 16,
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between', 
+    alignItems: 'center',
+    width: '100%',
+    paddingTop: 24,
+    paddingBottom: 16,
+  },
+  headerText: {
+    fontFamily: 'SFProText-Regular',
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: 'rgba(0, 0, 0, 0.8)',
+  },
+  seeAllText: {
+    fontFamily: 'SFProText-Regular',
+    fontSize: 16,
+    color: '#000', 
+  },
+  container: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    paddingTop: 0,
+  },
+  item: {
+    alignItems: 'center',
+    marginBottom: 24,
+    marginRight: 40,
+  },
+  iconWrapper: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: '#f0f0f0',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  icon: {
+    width: 32,
+    height: 32,
+    resizeMode: 'contain',
+  },
+  label: {
+    fontFamily: 'SFProText-Regular',
+    fontSize: 13,
+    lineHeight: 19.5,
+    letterSpacing: -0.13,
+    color: 'rgba(0, 0, 0, 0.4)',
+    textAlign: 'center',
+  },
+});

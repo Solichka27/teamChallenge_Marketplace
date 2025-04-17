@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import SearchBar from '@/components/ui/home_page/header/SearchBar';
-import Chat from '@/components/ui/home_page/header/Chat'
+import Chat from '@/components/ui/home_page/header/Chat';
 import Notification from '@/components/ui/home_page/header/Notification';
 import BuyMe from '@/components/ui/home_page/header/BuyMe'
 
