@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, FlatList, StyleSheet, Text, Alert } from 'react-native';
-import ProductCard from '@/components/ui/home_page/HorizontalProductList';
+import ProductCard from '@/components/ui/home_page/ProductCartView';
+import { ThemedText } from '@/components/ThemedText';
 
 const mockProducts = [
   {
@@ -29,12 +30,12 @@ const mockProducts = [
 
 export default function ProductList() {
   const handleProductPress = (product) => {
-    Alert.alert('Product Pressed', `You selected: ${product.title}`);
+    console.log('Product Pressed', `You selected: ${product.title}`);
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>For you</Text>
+      <ThemedText type="title">For you</ThemedText>
       <FlatList
         data={mockProducts}
         renderItem={({ item }) => (
@@ -52,11 +53,5 @@ export default function ProductList() {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 24,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    paddingHorizontal: 16,
-    marginBottom: 16,
   },
 });
