@@ -16,7 +16,7 @@ export default function CartForView({ item, onPress }) {
           <Image
             source={
               liked
-                ? require('@/assets/images/productInCatalog/heartfill.png') 
+                ? require('@/assets/images/productInCatalog/heartFill.png') 
                 : require('@/assets/images/productInCatalog/heart.png')
             }
             style={styles.heartImage}
@@ -42,10 +42,11 @@ export default function CartForView({ item, onPress }) {
 const styles = StyleSheet.create({
   card: {
     width: 164,
-    borderRadius: 16,
+    height: 220,
     backgroundColor: 'white',
-    marginRight: 16,
-    padding: 10,
+    marginRight: 10,
+    shadowOpacity: 0.3,
+    shadowRadius: 15,
   },
   imageWrapper: {
     position: 'relative',
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 200,
     resizeMode: 'contain',
-    borderRadius: 12,
+    borderRadius: 10,
     textAlign: 'center',
   },
   heartIcon: {
