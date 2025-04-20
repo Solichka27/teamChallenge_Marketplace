@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import {ThemedText} from '@/components/ThemedText';
 
 export default function CartForView({ item, onPress }) {
   const [liked, setLiked] = useState(false);
@@ -32,8 +33,7 @@ export default function CartForView({ item, onPress }) {
           <Text style={styles.ratingText}>{item.rating.toFixed(1)}</Text>
         </View>
       </View>
-
-      <Text numberOfLines={2} style={styles.title}>{item.title}</Text>
+      <ThemedText  numberOfLines={2} type="subtitle" style={styles.title}>{item.title}</ThemedText>
       <Text style={styles.price}>${item.price.toFixed(2)}</Text>
     </TouchableOpacity>
   );
@@ -42,22 +42,20 @@ export default function CartForView({ item, onPress }) {
 const styles = StyleSheet.create({
   card: {
     width: 164,
-    height: 220,
+    height: 289,
     backgroundColor: 'white',
     marginRight: 10,
-    shadowOpacity: 0.3,
-    shadowRadius: 15,
   },
   imageWrapper: {
     position: 'relative',
+    backgroundColor: 'white',
     borderRadius: 10,
+    overflow: 'hidden',
   },
   image: {
     width: '100%',
-    height: 200,
+    height: 220,
     resizeMode: 'contain',
-    borderRadius: 10,
-    textAlign: 'center',
   },
   heartIcon: {
     position: 'absolute',
@@ -98,14 +96,12 @@ const styles = StyleSheet.create({
     fontWeight: '500',
   },
   title: {
-    fontSize: 12,
-    fontWeight: '400',
-    color: '#000',
-    marginTop: 4,
+    marginTop: 8,
   },
   price: {
-    fontSize: 15,
+    fontSize: 11,
     fontWeight: 'bold',
-    marginTop: 6,
+    marginTop: 8,
+
   },
 });

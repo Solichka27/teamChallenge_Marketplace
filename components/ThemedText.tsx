@@ -49,8 +49,8 @@ const styles = StyleSheet.create({
     fontFamily: 'Outfit',
   },
   subtitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    fontSize: 12,
+    fontFamily: 'sfpProText-Regular'
   },
   link: {
     lineHeight: 30,
