@@ -86,7 +86,8 @@ const styles = StyleSheet.create({
   item: {
     alignItems: 'center',
     justifyContent: 'center',
-    width: 70,
+    width: 56,
+    marginHorizontal: 15,
   },
   iconWrapper: {
     width: 56,
