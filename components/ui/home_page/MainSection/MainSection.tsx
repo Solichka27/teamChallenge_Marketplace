@@ -44,16 +44,124 @@ const productData = {
     },
   ],
   easter: [
-    // Продукти для Easter Gifts
+    {
+        id: '1',
+        image: require('@/assets/images/productInCatalog/image.png'),
+        title: 'Nike Gym Club Training Bag: Black/College Grey/',
+        price: 53.00,
+        rating: 4.5,
+      },
+      {
+        id: '2',
+        image: require('@/assets/images/productInCatalog/image2.png'),
+        title: 'Nike Gym Club Training Bag: Gray Edition',
+        price: 53.00,
+        rating: 4.5,
+      },
+      {
+        id: '3',
+        image: require('@/assets/images/productInCatalog/image2.png'),
+        title: 'Nike Gym Club Training Bag: Gray Edition',
+        price: 53.00,
+        rating: 4.5,
+      },
+      {
+        id: '4',
+        image: require('@/assets/images/productInCatalog/image2.png'),
+        title: 'Nike Gym Club Training Bag: Gray Edition',
+        price: 53.00,
+        rating: 4.5,
+      },
   ],
   bestsellers: [
-    // Продукти для Bestsellers
+    {
+        id: '1',
+        image: require('@/assets/images/productInCatalog/image.png'),
+        title: 'Nike Gym Club Training Bag: Black/College Grey/',
+        price: 53.00,
+        rating: 4.5,
+      },
+      {
+        id: '2',
+        image: require('@/assets/images/productInCatalog/image2.png'),
+        title: 'Nike Gym Club Training Bag: Gray Edition',
+        price: 53.00,
+        rating: 4.5,
+      },
+      {
+        id: '3',
+        image: require('@/assets/images/productInCatalog/image2.png'),
+        title: 'Nike Gym Club Training Bag: Gray Edition',
+        price: 53.00,
+        rating: 4.5,
+      },
+      {
+        id: '4',
+        image: require('@/assets/images/productInCatalog/image2.png'),
+        title: 'Nike Gym Club Training Bag: Gray Edition',
+        price: 53.00,
+        rating: 4.5,
+      },
   ],
   sales: [
-    // Продукти для Sales
+    {
+        id: '1',
+        image: require('@/assets/images/productInCatalog/image.png'),
+        title: 'Nike Gym Club Training Bag: Black/College Grey/',
+        price: 53.00,
+        rating: 4.5,
+      },
+      {
+        id: '2',
+        image: require('@/assets/images/productInCatalog/image2.png'),
+        title: 'Nike Gym Club Training Bag: Gray Edition',
+        price: 53.00,
+        rating: 4.5,
+      },
+      {
+        id: '3',
+        image: require('@/assets/images/productInCatalog/image2.png'),
+        title: 'Nike Gym Club Training Bag: Gray Edition',
+        price: 53.00,
+        rating: 4.5,
+      },
+      {
+        id: '4',
+        image: require('@/assets/images/productInCatalog/image2.png'),
+        title: 'Nike Gym Club Training Bag: Gray Edition',
+        price: 53.00,
+        rating: 4.5,
+      },
   ],
   history: [
-    // Продукти для History
+    {
+        id: '1',
+        image: require('@/assets/images/productInCatalog/image.png'),
+        title: 'Nike Gym Club Training Bag: Black/College Grey/',
+        price: 53.00,
+        rating: 4.5,
+      },
+      {
+        id: '2',
+        image: require('@/assets/images/productInCatalog/image2.png'),
+        title: 'Nike Gym Club Training Bag: Gray Edition',
+        price: 53.00,
+        rating: 4.5,
+      },
+      {
+        id: '3',
+        image: require('@/assets/images/productInCatalog/image2.png'),
+        title: 'Nike Gym Club Training Bag: Gray Edition',
+        price: 53.00,
+        rating: 4.5,
+      },
+      {
+        id: '4',
+        image: require('@/assets/images/productInCatalog/image2.png'),
+        title: 'Nike Gym Club Training Bag: Gray Edition',
+        price: 53.00,
+        rating: 4.5,
+      },
   ],
 };
 
