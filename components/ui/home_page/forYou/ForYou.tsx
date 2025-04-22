@@ -1,12 +1,13 @@
 import React from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import HorizontalProductList from '@/components/ui/home_page/forYou/HorizontalProductList';
+import { ThemedText } from '@/components/ThemedText';
 
 export default function Header() {
   return (
     <View style={styles.container}>
-
-    <HorizontalProductList />
+      <ThemedText type="title" style={styles.title}>For you</ThemedText>
+      <HorizontalProductList />
 
     </View>
   );
@@ -14,9 +15,11 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    marginRight: 12,
+    flexDirection: 'column',
   },
+  title:{
+    color: 'black',
+    marginBottom: 8,
+    paddingHorizontal: 21,
+  }
 });

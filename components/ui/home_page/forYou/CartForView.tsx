@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import {ThemedText} from '@/components/ThemedText';
+import { ThemedText } from '@/components/ThemedText';
 
 export default function CartForView({ item, onPress }) {
   const [liked, setLiked] = useState(false);
@@ -17,7 +17,7 @@ export default function CartForView({ item, onPress }) {
           <Image
             source={
               liked
-                ? require('@/assets/images/productInCatalog/heartFill.png') 
+                ? require('@/assets/images/productInCatalog/heartFill.png')
                 : require('@/assets/images/productInCatalog/heart.png')
             }
             style={styles.heartImage}
@@ -33,34 +33,44 @@ export default function CartForView({ item, onPress }) {
           <Text style={styles.ratingText}>{item.rating.toFixed(1)}</Text>
         </View>
       </View>
-      <ThemedText  numberOfLines={2} type="subtitle" style={styles.title}>{item.title}</ThemedText>
-      <Text style={styles.price}>${item.price.toFixed(2)}</Text>
+
+      <View style={styles.textContent}>
+        <ThemedText numberOfLines={2} type="subtitle" style={styles.title}>
+          {item.title}
+        </ThemedText>
+        <Text style={styles.price}>${item.price.toFixed(2)}</Text>
+      </View>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   card: {
-    width: 164,
-    height: 289,
-    backgroundColor: 'white',
-    marginRight: 10,
+    width: 180,
+    marginRight: 12,
+
   },
+  
   imageWrapper: {
+    height: 220,
     position: 'relative',
-    backgroundColor: 'white',
     borderRadius: 10,
     overflow: 'hidden',
+    left:-10,
+   
   },
+  
   image: {
-    width: '100%',
-    height: 220,
-    resizeMode: 'contain',
+    flex: 1,
+    width: 200,
+    height: undefined,
+    resizeMode: 'cover',
+   
   },
   heartIcon: {
     position: 'absolute',
-    top: 10,
-    right: 10,
+    top: 8,
+    right: 8,
     width: 24,
     height: 24,
     justifyContent: 'center',
@@ -74,9 +84,9 @@ const styles = StyleSheet.create({
   },
   ratingBadge: {
     position: 'absolute',
-    bottom: 8,
-    left: 8,
-    backgroundColor: 'white',
+    bottom: 13,
+    left: 25,
+    backgroundColor: '#F8F8F8',
     borderRadius: 50,
     paddingHorizontal: 8,
     paddingVertical: 4,
@@ -95,13 +105,16 @@ const styles = StyleSheet.create({
     color: '#000',
     fontWeight: '500',
   },
+  textContent: {
+    paddingTop: 8,
+    paddingHorizontal: 4,
+  },
   title: {
-    marginTop: 8,
+    fontSize: 13,
   },
   price: {
     fontSize: 11,
     fontWeight: 'bold',
     marginTop: 8,
-
   },
 });

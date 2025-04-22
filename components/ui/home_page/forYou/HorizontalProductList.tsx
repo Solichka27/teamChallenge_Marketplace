@@ -17,6 +17,7 @@ const products = [
     price: 53.00,
     rating: 4.5,
   },
+  /*
   {
     id: '3',
     image: require('@/assets/images/productInCatalog/image.png'),
@@ -72,7 +73,7 @@ const products = [
     title: 'Nike Gym Club Training Bag: Gray Edition',
     price: 53.00,
     rating: 4.5,
-  },
+  },*/
 ];
 
 export default function HorizontalProductList() {
