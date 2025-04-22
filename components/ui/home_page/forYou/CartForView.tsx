@@ -6,6 +6,9 @@ export default function CartForView({ item, onPress }) {
   const [liked, setLiked] = useState(false);
 
   const toggleLike = () => setLiked(!liked);
+  if (!item || !item.image) {
+    return null;
+  }
 
   return (
     <TouchableOpacity style={styles.card} onPress={() => onPress(item)}>

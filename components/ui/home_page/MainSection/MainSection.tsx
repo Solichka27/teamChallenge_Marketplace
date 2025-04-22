@@ -7,12 +7,192 @@ import {
   FlatList,
   Dimensions,
 } from 'react-native';
-import { TabView, SceneMap } from 'react-native-tab-view';
-import CartForView from '@/components/ui/home_page/forYou/CartForView'; // Переконайтеся, що цей компонент існує
+import { ThemedText } from '@/components/ThemedText';
+import CartForView from '@/components/ui/home_page/forYou/CartForView'; // Ваш компонент для товарів
+
 const { width } = Dimensions.get('window');
 
+export default function MainSection() {
+  const [selectedTab, setSelectedTab] = useState('all');
+  
+  // Дані для кожної категорії товарів
+  const products = {
+    all: [
+      { id: '1', title: 'Product 1', price: 20, image: require('@/assets/images/productInCatalog/image2.png'), rating: 4.5 },
+      { id: '2', title: 'Product 2', price: 30, image: require('@/assets/images/productInCatalog/image2.png'), rating: 4.2 },
+      { id: '3', title: 'Product 2', price: 30, image: require('@/assets/images/productInCatalog/image2.png'), rating: 4.2 },
+      { id: '4', title: 'Product 2', price: 30, image: require('@/assets/images/productInCatalog/image2.png'), rating: 4.2 },
+      { id: '5', title: 'Product 2', price: 30, image: require('@/assets/images/productInCatalog/image2.png'), rating: 4.2 },// Додайте більше товарів для категорії 'all'
+    ],
+    easter: [
+      { id: '6', title: 'Easter Egg', price: 15, image: require('@/assets/images/productInCatalog/image2.png'), rating: 5 },
+      { id: '7', title: 'Easter Egg', price: 15, image: require('@/assets/images/productInCatalog/image2.png'), rating: 5 },
+      { id: '8', title: 'Easter Egg', price: 15, image: require('@/assets/images/productInCatalog/image2.png'), rating: 5 },
+      // Додайте більше товарів для категорії 'easter'
+    ],
+    bestsellers: [
+      { id: '9', title: 'Best Product 1', price: 50, image: require('@/assets/images/productInCatalog/image2.png'), rating: 4.8 },
+      { id: '10', title: 'Easter Egg', price: 15, image: require('@/assets/images/productInCatalog/image2.png'), rating: 5 },
+      { id: '11', title: 'Easter Egg', price: 15, image: require('@/assets/images/productInCatalog/image2.png'), rating: 5 },
+      // Додайте більше товарів для категорії 'bestsellers'
+    ],
+    sales: [
+      { id: '12', title: 'Sale Product', price: 10, image: require('@/assets/images/productInCatalog/image2.png'), rating: 4.0 },
+      { id: '13', title: 'Easter Egg', price: 15, image: require('@/assets/images/productInCatalog/image2.png'), rating: 5 },
+      { id: '14', title: 'Easter Egg', price: 15, image: require('@/assets/images/productInCatalog/image2.png'), rating: 5 },
+      // Додайте більше товарів для категорії 'sales'
+    ],
+    history: [
+      { id: '15', title: 'Historical Product 1', price: 45, image: require('@/assets/images/productInCatalog/image2.png'), rating: 3.9 },
+      { id: '16', title: 'Easter Egg', price: 15, image: require('@/assets/images/productInCatalog/image2.png'), rating: 5 },
+      { id: '17', title: 'Easter Egg', price: 15, image: require('@/assets/images/productInCatalog/image2.png'), rating: 5 },
+      // Додайте більше товарів для категорії 'history'
+    ],
+  };
+
+  // Функція для обробки натискання на заголовок
+  const handleTabPress = (tab) => {
+    setSelectedTab(tab);  // Встановлюємо вибраний вкладку
+    console.log('Selected Tab:', tab);
+  };
+
+  // Вибрані товари для поточної вкладки
+  const selectedProducts = products[selectedTab];
+
+  return (
+    <View style={styles.container}>
+      <View style={styles.tabsContainer}>
+        <TouchableOpacity
+          style={styles.tabItem}
+          onPress={() => handleTabPress('all')}
+        >
+          <ThemedText
+            type="title"
+            style={[styles.tabText, selectedTab === 'all' && styles.activeText]}
+          >
+            All
+          </ThemedText>
+          {selectedTab === 'all' && <View style={styles.activeEllipse} />}
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.tabItem}
+          onPress={() => handleTabPress('easter')}
+        >
+          <ThemedText
+            type="title"
+            style={[styles.tabText, selectedTab === 'easter' && styles.activeText]}
+          >
+            Easter Gifts
+          </ThemedText>
+          {selectedTab === 'easter' && <View style={styles.activeEllipse} />}
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.tabItem}
+          onPress={() => handleTabPress('bestsellers')}
+        >
+          <ThemedText
+            type="title"
+            style={[styles.tabText, selectedTab === 'bestsellers' && styles.activeText]}
+          >
+            Bestsellers
+          </ThemedText>
+          {selectedTab === 'bestsellers' && <View style={styles.activeEllipse} />}
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.tabItem}
+          onPress={() => handleTabPress('sales')}
+        >
+          <ThemedText
+            type="title"
+            style={[styles.tabText, selectedTab === 'sales' && styles.activeText]}
+          >
+            Sales
+          </ThemedText>
+          {selectedTab === 'sales' && <View style={styles.activeEllipse} />}
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.tabItem}
+          onPress={() => handleTabPress('history')}
+        >
+          <ThemedText
+            type="title"
+            style={[styles.tabText, selectedTab === 'history' && styles.activeText]}
+          >
+            History
+          </ThemedText>
+          {selectedTab === 'history' && <View style={styles.activeEllipse} />}
+        </TouchableOpacity>
+      </View>
+
+      <FlatList
+        data={selectedProducts}
+        renderItem={({ item }) => (
+          <CartForView item={item} onPress={() => console.log(item.title)} />
+        )}
+        keyExtractor={(item) => item.id}
+        numColumns={2}
+      contentContainerStyle={styles.containers}
+      columnWrapperStyle={styles.column}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: 20,
+  },
+
+  containers: {
+    paddingHorizontal: 16,
+    paddingBottom: 16,
+  },
+  column: {
+    justifyContent: 'space-between',
+    marginBottom: 16,
+  },
+  tabsContainer: {
+    flexDirection: 'row',
+    marginLeft: 16,
+  },
+  tabItem: {
+    marginRight: 12,
+    paddingVertical: 5,
+    alignItems: 'flex-start',
+  },
+  tabText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#000',
+    textAlign: 'left',
+  },
+  activeText: {
+    color: '#754CD8',
+  },
+  activeEllipse: {
+    width: 12,
+    height: 4,
+    borderRadius: 2,
+    backgroundColor: '#754CD8',
+    marginTop: 3,
+    alignSelf: 'flex-start',
+  },
+  productsList: {
+    marginTop: 20,
+    paddingLeft: 16,
+  },
+});
+
+
+
+
 // Прикладові товари
-const productData = {
+/*const productData = {
   all: [
     {
       id: '1',
@@ -229,7 +409,7 @@ const styles = StyleSheet.create({
   tabBar: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    paddingVertical: 12,
+
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
     backgroundColor: '#fff',
@@ -282,3 +462,4 @@ const styles = StyleSheet.create({
 });
 
 export default TabComponent;
+*/
