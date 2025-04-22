@@ -4,7 +4,7 @@ import Header from '@/components/ui/home_page/header/Header';
 import BannerCarousel from '@/components/ui/home_page/Carousel/BannerCarousel';
 import Categories from '@/components/ui/home_page/CategoriesIcon';
 import ForYou from '@/components/ui/home_page/forYou/ForYou';
-import MainSection from '@/components/ui/home_page/MainSection';
+import MainSection from '@/components/ui/home_page/MainSection/MainSection';
 
 
 

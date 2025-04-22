@@ -8,40 +8,63 @@ import {
   Dimensions,
 } from 'react-native';
 import { TabView, SceneMap } from 'react-native-tab-view';
-
+import CartForView from '@/components/ui/home_page/forYou/CartForView'; // Переконайтеся, що цей компонент існує
 const { width } = Dimensions.get('window');
 
 // Прикладові товари
 const productData = {
   all: [
-    { id: '1', title: 'Product 1', price: 10.0, rating: 4.5 },
-    { id: '2', title: 'Product 2', price: 20.0, rating: 3.0 },
-    { id: '3', title: 'Product 3', price: 5.0, rating: 4.0 },
-    { id: '4', title: 'Product 4', price: 15.0, rating: 3.5 },
+    {
+      id: '1',
+      image: require('@/assets/images/productInCatalog/image.png'),
+      title: 'Nike Gym Club Training Bag: Black/College Grey/',
+      price: 53.00,
+      rating: 4.5,
+    },
+    {
+      id: '2',
+      image: require('@/assets/images/productInCatalog/image2.png'),
+      title: 'Nike Gym Club Training Bag: Gray Edition',
+      price: 53.00,
+      rating: 4.5,
+    },
+    {
+      id: '3',
+      image: require('@/assets/images/productInCatalog/image2.png'),
+      title: 'Nike Gym Club Training Bag: Gray Edition',
+      price: 53.00,
+      rating: 4.5,
+    },
+    {
+      id: '4',
+      image: require('@/assets/images/productInCatalog/image2.png'),
+      title: 'Nike Gym Club Training Bag: Gray Edition',
+      price: 53.00,
+      rating: 4.5,
+    },
   ],
   easter: [
-    { id: '1', title: 'Easter Egg', price: 35.0, rating: 3.5 },
-    { id: '2', title: 'Ferrero Rocher', price: 5.0, rating: 4.5 },
+    // Продукти для Easter Gifts
   ],
-  bestsellers: [],
-  sales: [],
-  history: [],
+  bestsellers: [
+    // Продукти для Bestsellers
+  ],
+  sales: [
+    // Продукти для Sales
+  ],
+  history: [
+    // Продукти для History
+  ],
 };
-
-const renderProduct = ({ item }: any) => (
-  <View style={styles.productCard}>
-    <Text style={styles.productTitle}>{item.title}</Text>
-    <Text style={styles.productPrice}>${item.price.toFixed(2)}</Text>
-    <Text style={styles.productRating}>⭐ {item.rating}</Text>
-  </View>
-);
 
 // Таб-вміст для кожної вкладки
 const makeTabScene = (items: any[]) => () => (
   <FlatList
     data={items}
     keyExtractor={(item) => item.id}
-    renderItem={renderProduct}
+    renderItem={({ item }) => (
+      <CartForView productData={item} />
+    )}
     numColumns={2}
     columnWrapperStyle={styles.row}
     contentContainerStyle={{ paddingBottom: 100 }}
