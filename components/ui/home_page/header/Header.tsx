@@ -24,7 +24,7 @@ export default function Header() {
 }
 
 const styles = StyleSheet.create({
-  wrapper:{
+  wrapper: {
     paddingHorizontal: 16,
   },
   container: {

@@ -1,26 +1,26 @@
-import { StyleSheet, Platform, SafeAreaView , ScrollView} from 'react-native';
+import { StyleSheet, Platform, SafeAreaView, ScrollView } from 'react-native';
 import { ThemedView } from '@/components/ThemedView';
 import Header from '@/components/ui/home_page/header/Header';
-import BannerCarousel from '@/components/ui/home_page/Carousel/BannerCarousel';
+import BannerCarousel from '@/components/ui/home_page/carousel/BannerCarousel';
 import Categories from '@/components/ui/home_page/CategoriesIcon';
 import ForYou from '@/components/ui/home_page/forYou/ForYou';
-import MainSection from '@/components/ui/home_page/MainSection/MainSection';
+import MainSection from '@/components/ui/home_page/mainSection/MainSection';
 
 
 
 export default function HomeScreen() {
   return (
-<SafeAreaView style={{ flex: 1 }}>
-<ScrollView contentContainerStyle={styles.scrollContent}>
-  <ThemedView style={styles.titleContainer}>
-    <Header />
-    <BannerCarousel />
-    <Categories />
-    <ForYou />
-    <MainSection />
-  </ThemedView>
-</ScrollView>
-</SafeAreaView>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={styles.scrollContent}>
+        <ThemedView style={styles.titleContainer}>
+          <Header />
+          <BannerCarousel />
+          <Categories />
+          <ForYou />
+          <MainSection />
+        </ThemedView>
+      </ScrollView>
+    </SafeAreaView>
   );
 
 }

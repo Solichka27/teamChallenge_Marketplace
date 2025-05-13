@@ -38,7 +38,7 @@ export default function BannerCarousel() {
         ref={flatListRef}
         data={banners}
         keyExtractor={(_, index) => index.toString()}
-        extraData={currentIndex} // 👈 змушує оновити банер
+        extraData={currentIndex}
         renderItem={({ item }) => (
           <View style={styles.bannerWrapper}>
             <Image source={item} style={styles.image} />

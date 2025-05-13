@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   TouchableOpacity,
   FlatList,
@@ -14,8 +13,7 @@ const { width } = Dimensions.get('window');
 
 export default function MainSection() {
   const [selectedTab, setSelectedTab] = useState('all');
-  
-  // Дані для кожної категорії товарів
+
   const products = {
     all: [
       { id: '1', title: 'Product 1', price: 20, image: require('@/assets/images/productInCatalog/image2.png'), rating: 4.5 },
@@ -50,13 +48,11 @@ export default function MainSection() {
     ],
   };
 
-  // Функція для обробки натискання на заголовок
   const handleTabPress = (tab) => {
-    setSelectedTab(tab);  // Встановлюємо вибраний вкладку
+    setSelectedTab(tab);
     console.log('Selected Tab:', tab);
   };
 
-  // Вибрані товари для поточної вкладки
   const selectedProducts = products[selectedTab];
 
   return (
@@ -135,8 +131,8 @@ export default function MainSection() {
         )}
         keyExtractor={(item) => item.id}
         numColumns={2}
-      contentContainerStyle={styles.containers}
-      columnWrapperStyle={styles.column}
+        contentContainerStyle={styles.containers}
+        columnWrapperStyle={styles.column}
       />
     </View>
   );

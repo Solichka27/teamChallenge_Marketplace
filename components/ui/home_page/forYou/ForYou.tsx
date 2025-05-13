@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
   },
-  title:{
+  title: {
     color: 'black',
     marginBottom: 8,
     paddingHorizontal: 21,

@@ -53,22 +53,22 @@ const styles = StyleSheet.create({
     marginRight: 12,
 
   },
-  
+
   imageWrapper: {
     height: 220,
     position: 'relative',
     borderRadius: 10,
     overflow: 'hidden',
-    left:-10,
-   
+    left: -10,
+
   },
-  
+
   image: {
     flex: 1,
     width: 200,
     height: undefined,
     resizeMode: 'cover',
-   
+
   },
   heartIcon: {
     position: 'absolute',
