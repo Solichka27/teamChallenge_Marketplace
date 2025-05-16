@@ -1,4 +1,4 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -15,6 +15,10 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    Manrope: require('../assets/fonts/Manrope-Regular.ttf'),
+    ManropeBold: require('../assets/fonts/Manrope-Bold.ttf'),
+    Outfit: require('../assets/fonts/Outfit-Regular.ttf'),
+    OutfitBold: require('../assets/fonts/Outfit-Bold.ttf'),
   });
 
   useEffect(() => {
