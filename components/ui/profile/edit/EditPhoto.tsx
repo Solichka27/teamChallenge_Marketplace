@@ -38,8 +38,6 @@ export default function EditPhoto() {
 
 
 const styles = StyleSheet.create({
-
-
     photoSection: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -57,7 +55,7 @@ const styles = StyleSheet.create({
     profileInitials: {
         fontSize: 22,
         color: '#170F2B',
-        fontFamily: "ManropeBold",
+        fontWeight: 'bold',
     },
     photoLabel: {
         marginLeft: 20,
@@ -66,22 +64,17 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
     },
     photoButtons: {
-        flexDirection: "row",
+        flexDirection: 'row',
+        marginTop: 16,
+        marginLeft: 20,
         justifyContent: "space-around",
-        alignItems: "center",
-        borderBottomWidth: 1,
-        borderBottomColor: "#8E6CEF",
-        paddingBottom: 16,
     },
     photoButton: {
-        flexDirection: "row",
-        alignItems: "center",
-    },
-    galleryButton: {
         flexDirection: 'row',
         alignItems: 'center',
         paddingVertical: 6,
-        paddingHorizontal: 35,
+        paddingHorizontal: 10,
+        marginRight: 10,
     },
     photoButtonText: {
         color: '#8E6CEF',
