@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, SafeAreaView, } from 'react-native';
+
 import BackArrow from '@/components/ui/BackArrow';
 import EditPhoto from '@/components/ui/profile/edit/EditPhoto';
 import FormFields from '@/components/ui/profile/edit/FormFields';
@@ -9,6 +9,7 @@ export default function EditProfile() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={styles.container}>
+
         {/* Header */}
         <View style={styles.headerContainer}>
           <BackArrow />
@@ -27,6 +28,7 @@ export default function EditProfile() {
         <TouchableOpacity style={styles.saveButton}>
           <Text style={styles.saveButtonText}>Зберегти зміни</Text>
         </TouchableOpacity>
+
       </ScrollView>
     </SafeAreaView >
 
@@ -40,16 +42,20 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   headerContainer: {
+    height: 65,
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     paddingTop: 20,
     paddingLeft: 20,
+    paddingHorizontal: 20,
+    position: 'relative',
   },
   headerTitle: {
     color: '#170F2B',
     fontSize: 22,
     fontFamily: 'Manrope-Regular',
-    marginLeft: 33,
+    textAlign: 'center',
   },
 
   divider: {

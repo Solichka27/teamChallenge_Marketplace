@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
 import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { CaretLeft } from 'phosphor-react-native';
 
 export default function BackArrow() {
     const navigation = useNavigation();
     return (
-        <View>
-            <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
-                <View style={styles.backIconCircle}>
-                    ‹
-                </View>
-            </TouchableOpacity>
-        </View>
+        <TouchableOpacity style={styles.backArrowWrapper} onPress={() => navigation.goBack()}>
+            <View style={styles.backIconCircle}>
+                <CaretLeft size={18} color="#ffffff" weight="bold" />
+            </View>
+        </TouchableOpacity>
     );
 }
 
-
 const styles = StyleSheet.create({
-    backButton: {
-        marginRight: 20,
+    backArrowWrapper: {
+        position: 'absolute',
+        left: 20,
+        top: 20,
+        zIndex: 1,
     },
     backIconCircle: {
         backgroundColor: '#AC94E8',
@@ -28,5 +28,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-
 });
