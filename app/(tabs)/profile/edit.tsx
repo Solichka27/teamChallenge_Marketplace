@@ -1,8 +1,7 @@
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView, SafeAreaView, } from 'react-native';
-
 import BackArrow from '@/components/ui/BackArrow';
 import EditPhoto from '@/components/ui/profile/edit/EditPhoto';
-import FormFields from '@/components/ui/profile/edit/FormFields';
+import FormFields from '@/components/ui/profile/edit/formFields/FormFields';
 
 
 export default function EditProfile() {
@@ -34,7 +33,6 @@ export default function EditProfile() {
 
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
