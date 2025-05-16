@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, ScrollView, SafeAreaView, } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
-import DateField from './DateField'
+import DateField from './DateField';
 
 export default function FormFields() {
     const [phone, setPhone] = useState('');
