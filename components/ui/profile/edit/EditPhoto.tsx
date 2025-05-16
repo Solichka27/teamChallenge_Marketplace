@@ -1,15 +1,40 @@
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
-import { Camera, Image } from 'phosphor-react-native';
+import { Camera, Image as ImageIcon } from 'phosphor-react-native';
 
 export default function EditPhoto() {
-    return (
+    const [photoUri, setPhotoUri] = useState<string | null>(null);
 
+    const handleTakePhoto = () => {
+        launchCamera({ mediaType: 'photo' }, (response) => {
+            if (!response.didCancel && response.assets && response.assets.length > 0) {
+                setPhotoUri(response.assets[0].uri || null);
+            }
+        });
+    };
+
+    const handleChooseFromLibrary = () => {
+        launchImageLibrary({ mediaType: 'photo' }, (response) => {
+            if (!response.didCancel && response.assets && response.assets.length > 0) {
+                setPhotoUri(response.assets[0].uri || null);
+            }
+        });
+    };
+
+    return (
         <View>
             {/* Profile Image Section */}
             <View style={styles.photoSection}>
                 <View style={styles.profileCircle}>
-                    <Text style={styles.profileInitials}>КК</Text>
+                    {photoUri ? (
+                        <Image
+                            source={{ uri: photoUri }}
+                            style={styles.profileImage}
+                        />
+                    ) : (
+                        <Text style={styles.profileInitials}>КК</Text>
+                    )}
                 </View>
                 <Text style={styles.photoLabel}>Фото профілю</Text>
             </View>
@@ -18,7 +43,7 @@ export default function EditPhoto() {
             <View style={styles.photoButtons}>
                 <TouchableOpacity
                     style={styles.photoButton}
-                    onPress={() => launchCamera({ mediaType: 'photo' })}
+                    onPress={handleTakePhoto}
                 >
                     <Camera size={32} color="#8e6cef" weight="thin" />
                     <Text style={styles.photoButtonText}>Зробити фото</Text>
@@ -26,16 +51,15 @@ export default function EditPhoto() {
 
                 <TouchableOpacity
                     style={styles.photoButton}
-                    onPress={() => launchImageLibrary({ mediaType: 'photo' })}
+                    onPress={handleChooseFromLibrary}
                 >
-                    <Image size={32} color="#8e6cef" weight="thin" />
+                    <ImageIcon size={32} color="#8e6cef" weight="thin" />
                     <Text style={styles.photoButtonText}>Галерея</Text>
                 </TouchableOpacity>
             </View>
         </View>
     );
 }
-
 
 const styles = StyleSheet.create({
     photoSection: {
@@ -51,6 +75,12 @@ const styles = StyleSheet.create({
         height: 80,
         justifyContent: 'center',
         alignItems: 'center',
+        overflow: 'hidden',
+    },
+    profileImage: {
+        width: 80,
+        height: 80,
+        resizeMode: 'cover',
     },
     profileInitials: {
         fontSize: 22,
