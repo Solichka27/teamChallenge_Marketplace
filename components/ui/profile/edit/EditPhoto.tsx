@@ -26,18 +26,19 @@ export default function EditPhoto() {
         <View>
             {/* Profile Image Section */}
             <View style={styles.photoSection}>
-                <View style={styles.profileCircle}>
-                    {photoUri ? (
-                        <Image
-                            source={{ uri: photoUri }}
-                            style={styles.profileImage}
-                        />
-                    ) : (
+                {photoUri ? (
+                    <Image
+                        source={{ uri: photoUri }}
+                        style={styles.profileCircle}
+                    />
+                ) : (
+                    <View style={styles.profileCircle}>
                         <Text style={styles.profileInitials}>КК</Text>
-                    )}
-                </View>
+                    </View>
+                )}
                 <Text style={styles.photoLabel}>Фото профілю</Text>
             </View>
+
 
             {/* Photo Buttons */}
             <View style={styles.photoButtons}>
