@@ -15,6 +15,10 @@ Go to the website https://expo.dev/go and follow the instructions.
 
 4. Run the following command in your terminal:   
 npm install expo-router (installing a router for navigation)  
+npm install phosphor-react-native (install icons)  
+npm install @react-native-community/datetimepicker (the ability to select a date from a calendar and display it in a specific format)  
+npm install react-native-image-picker (the ability to open the camera and gallery)  
+npm install react-native-masked-text (input mask: phone numbers, a date)  
    npx expo start (starts the project)  
 
    Choose how to open the app:  
