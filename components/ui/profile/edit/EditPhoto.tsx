@@ -24,7 +24,6 @@ export default function EditPhoto() {
 
     return (
         <View>
-            {/* Profile Image Section */}
             <View style={styles.photoSection}>
                 {photoUri ? (
                     <Image
@@ -39,8 +38,6 @@ export default function EditPhoto() {
                 <Text style={styles.photoLabel}>Фото профілю</Text>
             </View>
 
-
-            {/* Photo Buttons */}
             <View style={styles.photoButtons}>
                 <TouchableOpacity
                     style={styles.photoButton}
@@ -86,13 +83,14 @@ const styles = StyleSheet.create({
     profileInitials: {
         fontSize: 22,
         color: '#170F2B',
-        fontWeight: 'bold',
+        fontFamily: "ManropeBold",
     },
     photoLabel: {
         marginLeft: 20,
-        fontSize: 22,
+        fontSize: 20,
         color: '#170F2B',
         alignSelf: 'center',
+        fontFamily: "Manrope",
     },
     photoButtons: {
         flexDirection: 'row',
@@ -110,7 +108,7 @@ const styles = StyleSheet.create({
     photoButtonText: {
         color: '#8E6CEF',
         fontSize: 16,
-        fontWeight: 'bold',
         marginLeft: 6,
+        fontWeight: 700,
     },
 });

@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: '#999999',
         fontFamily: 'Manrope-Regular',
-        marginBottom: 8,
+        marginBottom: 6,
     },
     input: {
         borderWidth: 1,
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     modalContainer: {
         flex: 1,
         justifyContent: 'flex-end',
-        backgroundColor: 'rgba(0,0,0,0.5)',
+        backgroundColor: '#999999',
     },
     modalContent: {
         backgroundColor: 'white',

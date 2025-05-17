@@ -7,21 +7,17 @@ import FormFields from '@/components/ui/profile/edit/formFields/FormFields';
 export default function EditProfile() {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <ScrollView style={styles.container}>
+      <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 70 }}>
 
-        {/* Header */}
         <View style={styles.headerContainer}>
           <BackArrow />
           <Text style={styles.headerTitle}>Мої дані</Text>
         </View>
 
-        {/* Profile Image Section */}
         <EditPhoto />
 
-        {/* Divider */}
         <View style={styles.divider} />
 
-        {/* Form Fields */}
         <FormFields />
 
         <TouchableOpacity style={styles.saveButton}>
@@ -64,7 +60,7 @@ const styles = StyleSheet.create({
   },
   saveButton: {
     backgroundColor: '#8E6CEF',
-    height: 53,
+    height: 52,
     borderRadius: 10,
     marginHorizontal: 20,
     marginTop: 22,

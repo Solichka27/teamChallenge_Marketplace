@@ -9,7 +9,6 @@ export default function FormFields() {
         <SafeAreaView style={{ flex: 1 }}>
             <ScrollView style={styles.container}>
 
-                {/* Form Fields */}
                 <View style={styles.inputGroup}>
                     <Text style={styles.label}>Ім'я</Text>
                     <TextInput style={styles.input} defaultValue="Катерина" />
@@ -70,7 +69,7 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: '#999999',
         fontFamily: 'Manrope-Regular',
-        marginBottom: 8,
+        marginBottom: 6,
     },
     input: {
         borderWidth: 1,
@@ -81,14 +80,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontFamily: 'Manrope-Regular',
         color: '#170F2B',
-    },
-    dateInputContainer: {
-        position: 'relative',
-    },
-    dateIcon: {
-        position: 'absolute',
-        right: 10,
-        top: 5,
     },
     contactsHeader: {
         fontSize: 18,
