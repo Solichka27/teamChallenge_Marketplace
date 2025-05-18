@@ -4,7 +4,7 @@ import { TextInputMask } from 'react-native-masked-text';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { CalendarBlank } from 'phosphor-react-native';
 
-export default function DataFields() {
+export default function DataField() {
     const [date, setDate] = useState(new Date(2005, 3, 18));
     const [textDate, setTextDate] = useState(formatDate(date));
     const [showDatePicker, setShowDatePicker] = useState(false);

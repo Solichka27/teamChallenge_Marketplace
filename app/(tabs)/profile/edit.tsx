@@ -71,7 +71,5 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 16,
     fontFamily: 'Outfit-Bold',
-    paddingVertical: 16,
-    paddingHorizontal: 110,
   },
 });
