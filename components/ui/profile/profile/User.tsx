@@ -2,14 +2,22 @@ import { Link } from "expo-router"
 import { PencilSimple } from "phosphor-react-native"
 import { Pressable, StyleSheet, Text, View } from "react-native"
 
+// заглушка
+const firstName = "Катерина";
+const lastName = "Ковальчук";
+
 export default function User() {
+
+  const fullName = `${firstName} ${lastName}`
+  const initials = `${firstName[0]}${lastName[0]}`.toUpperCase();
+
     return (
         <View style={styles.user}>
           <View style={styles.avatar}>
-            <Text style={styles.avatarText}>KK</Text>
+            <Text style={styles.avatarText}>{initials}</Text>
           </View>
           <View>
-            <Text style={styles.nameUser}>Ім'я Прізвище</Text>
+            <Text style={styles.nameUser}>{fullName}</Text>
           </View>
           <Link href="/profile/edit" asChild>
             <Pressable>
