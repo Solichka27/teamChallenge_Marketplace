@@ -2,10 +2,11 @@ import { Stack, useRouter } from "expo-router";
 import { CaretLeft } from "phosphor-react-native";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
-import { NativeStackNavigationOptions, NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { Route, ParamListBase } from '@react-navigation/routers';
-
-import { profileScreens } from "./screensConfig"
+import {
+  NativeStackNavigationOptions,
+  NativeStackNavigationProp,
+} from "@react-navigation/native-stack";
+import { Route, ParamListBase } from "@react-navigation/routers";
 
 interface ProfileHeaderProps {
   route: Route<ParamListBase, string>;
@@ -18,61 +19,17 @@ const ProfileHeader: React.FC<ProfileHeaderProps> = ({ route, options }) => {
 
   return (
     <View style={styles.header}>
-      <Pressable
-        onPress={() => {
-          if (router.canGoBack()) {
-            router.back();
-          } else {
-            router.push("/profile");
-          }
-        }}
-        style={styles.headerLeft}
-      >
-        <View style={styles.backButton}>
-          <CaretLeft size={18} color="#FFFFFF" weight="bold" />
-        </View>
-      </Pressable>
+      {route.name !== "index" && (
+        <Pressable onPress={() => router.back()} style={styles.headerLeft}>
+          <View style={styles.backButton}>
+            <CaretLeft size={18} color="#FFFFFF" weight="bold" />
+          </View>
+        </Pressable>
+      )}
       <Text style={styles.title}>{options.title ?? route.name}</Text>
     </View>
   );
 };
-
-export default function ProfileStackLayout() {
-  return (
-    <Stack
-      screenOptions={{
-        headerShown: true,
-        header: (props) => <ProfileHeader {...props} />, // Використовуємо наш кастомний заголовок
-        headerTitleAlign: "center",
-        headerStyle: {
-          backgroundColor: "#fff",
-        },
-        headerTitleStyle: {
-          fontSize: 22,
-          fontFamily: "Manrope",
-          color: "#170F2B",
-        },
-      }}
-    >
-      <Stack.Screen
-        name="index"
-        options={{
-          headerShown: false,
-        }}
-      />
-      {profileScreens.map(({ name, title }) => (
-        <Stack.Screen
-          key={name}
-          name={name}
-          options={{
-            title: title,
-            headerLeft: null,
-          }}
-        />
-      ))}
-    </Stack>
-  );
-}
 
 const styles = StyleSheet.create({
   header: {
@@ -108,3 +65,52 @@ const styles = StyleSheet.create({
     color: "#170F2B",
   },
 });
+
+export default function ProfileStackLayout() {
+  const profileScreens = [
+    { name: "edit", title: "Мої дані" },
+    { name: "cards", title: "Мої картки" },
+    { name: "addresses", title: "Мої адреси" },
+    { name: "offerNotifications", title: "Пропозиції та сповіщення" },
+    { name: "orderHistory", title: "Історія замовлень" },
+    { name: "reviews", title: "Мої відгуки" },
+    { name: "sellerMessages", title: "Переписки з продавцями" },
+    { name: "settings", title: "Налаштування" },
+    { name: "support", title: "Служба підтримки" },
+  ];
+
+  return (
+    <Stack
+      screenOptions={{
+        headerShown: true,
+        header: (props) => <ProfileHeader {...props} />,
+        headerTitleAlign: "center",
+        headerStyle: {
+          backgroundColor: "#fff",
+        },
+        headerTitleStyle: {
+          fontSize: 22,
+          fontFamily: "Manrope",
+          color: "#170F2B",
+        },
+      }}
+    >
+      <Stack.Screen
+        name="index"
+        options={{
+          headerShown: false, 
+        }}
+      />
+      {profileScreens.map(({ name, title }) => (
+        <Stack.Screen
+          key={name}
+          name={name}
+          options={{
+            title: title,
+            headerLeft: null,
+          }}
+        />
+      ))}
+    </Stack>
+  );
+}
