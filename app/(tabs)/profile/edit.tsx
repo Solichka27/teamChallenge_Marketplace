@@ -9,11 +9,6 @@ export default function EditProfile() {
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 70 }}>
 
-        <View style={styles.headerContainer}>
-          <BackArrow />
-          <Text style={styles.headerTitle}>Мої дані</Text>
-        </View>
-
         <EditPhoto />
 
         <View style={styles.divider} />
@@ -34,22 +29,6 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',
     flex: 1,
-  },
-  headerContainer: {
-    height: 65,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 20,
-    paddingLeft: 20,
-    paddingHorizontal: 20,
-    position: 'relative',
-  },
-  headerTitle: {
-    color: '#170F2B',
-    fontSize: 22,
-    fontFamily: 'Manrope-Regular',
-    textAlign: 'center',
   },
 
   divider: {
