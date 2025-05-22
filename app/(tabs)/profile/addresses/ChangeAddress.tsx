@@ -1,9 +1,9 @@
 import { View, Text } from 'react-native';
 
-export default function MyAddresses() {
+export default function ChangeAddress() {
   return (
     <View>
-      <Text>Мої адреси</Text>
+      <Text>ChangeAddress</Text>
     </View>
   );
 }
