@@ -19,10 +19,8 @@ npm install phosphor-react-native (install icons)
 npm install @react-native-community/datetimepicker (the ability to select a date from a calendar and display it in a specific format)  
 npm install react-native-image-picker (the ability to open the camera and gallery)  
 npm install react-native-masked-text (input mask: phone numbers, a date)  
-npm install react-native-country-flag  
-npx expo install @react-navigation/native  
-npx expo install react-native-screens react-native-safe-area-context react-native-gesture-handler react-native-reanimated  
-npx expo install @react-navigation/native-stack 
+npm install formik (for handling forms)    
+npm install yup (a tool for simple and flexible form validation)   
 
    npx expo start (starts the project)  
 
