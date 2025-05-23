@@ -19,19 +19,4 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingBottom: 56,
   },
-
-  saveButton: {
-    backgroundColor: "#8E6CEF",
-    height: 52,
-    borderRadius: 10,
-    marginHorizontal: 20,
-    marginTop: 22,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  saveButtonText: {
-    color: "white",
-    fontSize: 16,
-    fontFamily: "Outfit-Bold",
-  },
 });
