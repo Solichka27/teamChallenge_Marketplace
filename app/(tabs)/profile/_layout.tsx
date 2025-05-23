@@ -6,7 +6,8 @@ export default function ProfileStackLayout() {
   const profileScreens = [
     { name: "edit", title: "Мої дані" },
     { name: "cards", title: "Мої картки" },
-    { name: "addresses", title: "Мої адреси" },
+    { name: "addresses/index", title: "Мої адреси" },
+    { name: "addresses/ChangeAddress", title: "Редагування адреси" },
     { name: "offersNotifications", title: "Пропозиції та сповіщення" },
     { name: "orderHistory", title: "Історія замовлень" },
     { name: "reviews", title: "Мої відгуки" },
