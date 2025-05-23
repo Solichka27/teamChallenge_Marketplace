@@ -14,7 +14,7 @@ export default function ProfileStackLayout() {
     { name: "sellerMessages", title: "Переписки з продавцями" },
     { name: "settings/index", title: "Налаштування" },
     { name: "settings/notificationSettings", title: "Налаштування сповіщень" },
-    { name: "settings/ChangePassword", title: "Змінити пароль" },
+    { name: "settings/changePassword", title: "Змінити пароль" },
     { name: "support", title: "Служба підтримки" },
   ];
 

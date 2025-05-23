@@ -32,7 +32,7 @@ export default function GeneralSettings() {
           <CaretRight size={18} weight="bold" />
         </View>
       </Link>
-      <Link href="/profile/settings/ChangePassword">
+      <Link href="/profile/settings/changePassword">
         <View style={styles.link}>
           <View style={styles.changePassword}>
             <Lock size={32} weight="thin" />
