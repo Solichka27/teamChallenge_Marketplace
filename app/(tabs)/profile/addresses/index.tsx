@@ -1,7 +1,5 @@
-import React, { useState } from 'react';
-import { View, Image, StyleSheet, TouchableOpacity, Text, ScrollView, SafeAreaView } from 'react-native';
-
-import MyAddresses from '@/components/ui/profile/address/MyAddresses';
+import { StyleSheet, ScrollView, SafeAreaView } from 'react-native';
+import MyAddresses from '@/components/ui/profile/address/MyAddress';
 
 export default function Addresses() {
   return (

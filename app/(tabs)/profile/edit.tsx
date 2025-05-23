@@ -49,6 +49,7 @@ const styles = StyleSheet.create({
   saveButtonText: {
     color: 'white',
     fontSize: 16,
-    fontFamily: 'Outfit-Bold',
+    //fontFamily: 'OutfitBold',
+    fontWeight: 700,
   },
 });

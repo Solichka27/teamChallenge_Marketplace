@@ -1,31 +1,41 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Pressable, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { PencilSimple } from 'phosphor-react-native';
 import { Link } from "expo-router";
+import CustomSwitch from "@/components/CustomSwitch";
 
+interface AddressCardProps {
+    title: string;
+    address: string;
+    logo: ReactElement;
+    active: boolean;
+    onPress: () => void;
+    isSwitchEnabled: boolean;
+    onToggleSwitch: () => void;
+}
 
-export default function AddressCard({ title, address, logo, active, onPress, switchValue, onSwitchToggle }) {
+export default function AddressCard({ title, address, logo, active, onPress, isSwitchEnabled, onToggleSwitch }: AddressCardProps) {
     return (
-        <TouchableOpacity onPress={onPress} activeOpacity={0.9} style={[styles.container, active && styles.activeBorder]}>
-            <View style={styles.topRow}>
+        <TouchableOpacity onPress={onPress} activeOpacity={0.9}
+            style={[styles.container, (active || isSwitchEnabled) && styles.activeBorder]}>
+
+            <View style={styles.header}>
                 <View style={styles.logoTitle}>
                     {logo}
                     <Text style={styles.title}>{title}</Text>
                 </View>
-                <TouchableOpacity onPress={onSwitchToggle} style={[styles.switch, switchValue && styles.switchActive]}>
-                    <View style={[styles.switchCircle, switchValue && styles.switchCircleActive]} />
-                </TouchableOpacity>
+                <CustomSwitch value={isSwitchEnabled} onToggle={onToggleSwitch} />
             </View>
 
-            <View style={styles.bottomRow}>
+            <View style={styles.address}>
                 <Text numberOfLines={3} style={styles.addressText}>{address}</Text>
-               <Link href="/(tabs)/profile/addresses/ChangeAddress" asChild>
+                <Link href="/(tabs)/profile/addresses/ChangeAddress" asChild>
                     <Pressable>
-                        <PencilSimple size={24} color="#170F2B" weight="light" style={styles.pencilIcon} />
+                        <PencilSimple size={24} color="#170F2B" style={styles.pencilIcon} />
                     </Pressable>
                 </Link>
-
             </View>
+
         </TouchableOpacity>
     );
 };
@@ -51,7 +61,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#8E6CEF',
     },
-    topRow: {
+    header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -61,43 +71,19 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     title: {
-        fontFamily: 'Outfit-Bold',
+        fontWeight: 700,
         fontSize: 16,
         color: '#170F2B',
         marginLeft: 18,
     },
-    switch: {
-        width: 29,
-        height: 20,
-        borderRadius: 20,
-        borderWidth: 1,
-        borderColor: '#8E6CEF',
-        backgroundColor: '#FFFFFF',
-        justifyContent: 'center',
-        paddingHorizontal: 3,
-    },
-    switchActive: {
-        backgroundColor: '#8E6CEF',
-    },
-    switchCircle: {
-        width: 10,
-        height: 10,
-        borderRadius: 5,
-        backgroundColor: '#8E6CEF',
-        alignSelf: 'flex-start',
-    },
-    switchCircleActive: {
-        backgroundColor: '#FFFFFF',
-        alignSelf: 'flex-end',
-    },
-    bottomRow: {
+    address: {
         flexDirection: 'row',
         marginTop: 16,
         justifyContent: 'space-between',
         alignItems: 'flex-start',
     },
     addressText: {
-        fontFamily: 'Manrope-Regular',
+        fontFamily: 'Manrope',
         fontSize: 16,
         color: '#170F2B',
         width: '75%',

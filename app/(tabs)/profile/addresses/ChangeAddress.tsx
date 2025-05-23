@@ -1,9 +1,17 @@
-import { View, Text } from 'react-native';
+import { StyleSheet, ScrollView, SafeAreaView } from 'react-native';
+import ChangeAddress from '@/components/ui/profile/address/ChangeAddress';
 
-export default function ChangeAddress() {
+export default function ChangeAddresses() {
   return (
-    <View>
-      <Text>ChangeAddress</Text>
-    </View>
+    <SafeAreaView style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={styles.container}>
+        <ChangeAddress />
+      </ScrollView>
+    </SafeAreaView>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#fff",
+  },
+})  

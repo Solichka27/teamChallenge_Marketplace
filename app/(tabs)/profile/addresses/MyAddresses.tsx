@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { View, Image, StyleSheet, TouchableOpacity, Text, ScrollView, SafeAreaView } from 'react-native';
+import React from 'react';
+import { StyleSheet, ScrollView, SafeAreaView } from 'react-native';
 
-import MyAddresses from '@/components/ui/profile/address/MyAddresses';
+import MyAddress from '@/components/ui/profile/address/MyAddress';
 
-export default function Addresses() {
+export default function MyAddresses() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#fff" }}>
       <ScrollView contentContainerStyle={styles.container}>
-        <MyAddresses />
+        <MyAddress />
       </ScrollView>
     </SafeAreaView>
   );
