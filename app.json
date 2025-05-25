@@ -8,6 +8,7 @@
     "scheme": "myapp",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
+    "jsEngine": "hermes",
     "ios": {
       "supportsTablet": true
     },
@@ -15,7 +16,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#F8F8F8"
-      }
+      },
+      "package": "com.anonymous.marketplace"
     },
     "web": {
       "bundler": "metro",

@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Platform, Modal } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
-import DateTimePicker from '@react-native-community/datetimepicker';
 import { CalendarBlank } from 'phosphor-react-native';
 
 export default function DataField() {
     const [date, setDate] = useState(new Date(2005, 3, 18));
     const [textDate, setTextDate] = useState(formatDate(date));
-    const [showDatePicker, setShowDatePicker] = useState(false);
 
     function formatDate(date) {
         return date.toLocaleDateString('uk-UA');
@@ -23,13 +21,6 @@ export default function DataField() {
         return null;
     }
 
-    const onChange = (event, selectedDate) => {
-        if (event.type !== 'dismissed' && selectedDate) {
-            setDate(selectedDate);
-            setTextDate(formatDate(selectedDate));
-        }
-        setShowDatePicker(false);
-    };
 
     return (
         <View>
@@ -48,44 +39,11 @@ export default function DataField() {
                     keyboardType="numeric"
                 />
                 <TouchableOpacity
-                    onPress={() => setShowDatePicker(true)}
                     style={styles.dateIcon}
                 >
                     <CalendarBlank size={32} color="#170f2b" weight="thin" />
                 </TouchableOpacity>
             </View>
-
-            {showDatePicker && Platform.OS === 'android' && (
-                <DateTimePicker
-                    value={date}
-                    mode="date"
-                    display="default"
-                    maximumDate={new Date()}
-                    onChange={onChange}
-                />
-            )}
-
-            {showDatePicker && Platform.OS === 'ios' && (
-                <Modal transparent={true} animationType="slide">
-                    <View style={styles.modalContainer}>
-                        <View style={styles.modalContent}>
-                            <DateTimePicker
-                                value={date}
-                                mode="date"
-                                display="spinner"
-                                maximumDate={new Date()}
-                                onChange={onChange}
-                            />
-                            <TouchableOpacity
-                                onPress={() => setShowDatePicker(false)}
-                                style={styles.closeButton}
-                            >
-                                <Text style={styles.closeButtonText}>OK</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                </Modal>
-            )}
         </View>
     );
 }
@@ -115,26 +73,5 @@ const styles = StyleSheet.create({
         right: 10,
         top: 5,
     },
-    modalContainer: {
-        flex: 1,
-        justifyContent: 'flex-end',
-        backgroundColor: '#999999',
-    },
-    modalContent: {
-        backgroundColor: 'white',
-        padding: 20,
-        borderTopLeftRadius: 20,
-        borderTopRightRadius: 20,
-    },
-    closeButton: {
-        marginTop: 10,
-        backgroundColor: '#170F2B',
-        paddingVertical: 10,
-        borderRadius: 10,
-        alignItems: 'center',
-    },
-    closeButtonText: {
-        color: 'white',
-        fontSize: 16,
-    },
+
 });
