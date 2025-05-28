@@ -1,8 +1,20 @@
 import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
+interface Product {
+  id: string;
+  title: string;
+  price: number;
+  image: any;
+  rating: number;
+}
 
-export default function CartForView({ item, onPress }) {
+interface CartForViewProp {
+  item: Product;
+  onPress: (item: Product) => void;
+}
+
+export default function CartForView({ item, onPress }: CartForViewProp) {
   const [liked, setLiked] = useState(false);
 
   const toggleLike = () => setLiked(!liked);

@@ -2,6 +2,12 @@ import React from 'react';
 import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity, Alert } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 
+type Category = {
+  id: string;
+  title: string;
+  icon: any;
+};
+
 const categories = [
   { id: '1', title: 'Clothes', icon: require('@/assets/images/home_page/categories/clothes-hanger.png') },
   { id: '2', title: 'Shoes', icon: require('@/assets/images/home_page/categories/sneaker.png') },
@@ -22,7 +28,7 @@ export default function CategoryGrid() {
     Alert.alert('See All Categories', 'Redirecting to all categories...');
   };
 
-  const renderItem = ({ item }) => (
+  const renderItem = ({ item }: { item: Category }) => (
     <TouchableOpacity
       style={styles.item}
       onPress={() => handleCategoryPress(item.title)}

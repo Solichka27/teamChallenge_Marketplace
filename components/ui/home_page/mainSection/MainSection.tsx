@@ -12,7 +12,7 @@ import CartForView from '@/components/ui/home_page/forYou/CartForView'; // Ва�
 const { width } = Dimensions.get('window');
 
 export default function MainSection() {
-  const [selectedTab, setSelectedTab] = useState('all');
+  const [selectedTab, setSelectedTab] = useState<keyof typeof products>('all');
 
   const products = {
     all: [
@@ -48,7 +48,7 @@ export default function MainSection() {
     ],
   };
 
-  const handleTabPress = (tab) => {
+  const handleTabPress = (tab: keyof typeof products) => {
     setSelectedTab(tab);
     console.log('Selected Tab:', tab);
   };

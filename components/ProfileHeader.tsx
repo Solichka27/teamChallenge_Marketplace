@@ -2,16 +2,9 @@ import { useRouter } from "expo-router";
 import { CaretLeft } from "phosphor-react-native";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import {
-  NativeStackNavigationOptions,
-  NativeStackNavigationProp,
+  NativeStackHeaderProps,
 } from "@react-navigation/native-stack";
-import { Route, ParamListBase } from "@react-navigation/routers";
-
-interface ProfileHeaderProps {
-  route: Route<ParamListBase, string>;
-  options: NativeStackNavigationOptions;
-  navigation: NativeStackNavigationProp<ParamListBase, string>;
-}
+type ProfileHeaderProps = NativeStackHeaderProps;
 
 export const ProfileHeader: React.FC<ProfileHeaderProps> = ({ route, options }) => {
   const router = useRouter();

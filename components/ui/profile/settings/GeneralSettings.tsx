@@ -3,8 +3,6 @@ import { CaretRight, Lock } from "phosphor-react-native";
 import { StyleSheet, Text, View } from "react-native";
 import CountryFlag from "react-native-country-flag";
 
-<CountryFlag isoCode="de" size={25} />;
-
 export default function GeneralSettings() {
   return (
     <View style={styles.block}>
@@ -26,13 +24,13 @@ export default function GeneralSettings() {
           <Text style={styles.textTr}>грн</Text>
         </View>
       {/* </Link> */}
-      <Link href="/profile/settings/notificationSettings">
+      <Link href={{ pathname: "/profile/settings/notificationSettings" }}>
         <View style={styles.link}>
           <Text style={styles.text}>Налаштування сповіщень</Text>
           <CaretRight size={18} weight="bold" />
         </View>
       </Link>
-      <Link href="/profile/settings/changePassword">
+      <Link href={{ pathname: "/profile/settings/changePassword" }}>
         <View style={styles.link}>
           <View style={styles.changePassword}>
             <Lock size={32} weight="thin" />
