@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   },
 
   input: {
-    flex: 1,
+    width: 180,
     fontFamily: 'SFProText-Regular',
     fontWeight: '400',
     fontSize: 13,
