@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     backgroundColor: "#fff",
     alignSelf: "flex-start",
-    transition: "all 0.3s",
+    // transition: "all 0.3s",
   },
   activeCircle: {
     alignSelf: "flex-end",

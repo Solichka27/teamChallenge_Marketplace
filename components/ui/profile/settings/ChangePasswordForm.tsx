@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import { Eye, EyeClosed, WarningCircle } from "phosphor-react-native";
+import { Eye, EyeClosed } from "phosphor-react-native";
 
 const validationSchema = Yup.object().shape({
   oldPassword: Yup.string().required("Введіть старий пароль"),
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
     fontFamily: "Manrope",
     color: "#999999",
     borderWidth: 0,
-    outlineStyle: "none", // щоб в браузері не було бордера
+    // outlineStyle: "none", // щоб в браузері не було бордера
     paddingVertical: 14,
   },
   error: {
